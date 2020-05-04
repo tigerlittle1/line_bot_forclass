@@ -12,10 +12,13 @@ from linebot.models import *
 
 app = Flask(__name__)
 
+Channel_Token = ""#填入Channel access token
+Channel_Secret = ""#填入Channel secret
+
 # Channel Access Token
-line_bot_api = LineBotApi() #填入Channel access token
+line_bot_api = LineBotApi(Channel_Token) 
 # Channel Secret
-handler = WebhookHandler() #填入Channel secret
+handler = WebhookHandler(Channel_Secret) 
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
